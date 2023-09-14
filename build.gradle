@@ -1,0 +1,95 @@
+apply from: 'config.gradle'
+
+buildscript {
+    ext {
+        springBootVersion = "2.2.7.RELEASE"
+    }
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenLocal()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url "https://download.red-gate.com/maven/release"
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.10.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+def all_service_subject = []
+def all_api_subject = []
+def all_ext_subject = []
+
+subprojects.each {
+    if (it.name.startsWith('platform-')) {
+        all_ext_subject << it
+    }
+
+    if (it.subprojects.empty && it.name.endsWith('-service')) {
+        all_service_subject << it
+    }
+    if (it.name.endsWith('-api')) {
+        all_api_subject << it
+    }
+}
+
+configure(all_service_subject) {
+    apply plugin: 'org.springframework.boot'
+}
+
+configure(all_ext_subject) {
+}
+
+allprojects {
+    group 'com.star.boss'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        mavenLocal()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url "https://download.red-gate.com/maven/release"
+        }
+    }
+}
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 11
+    targetCompatibility = 11
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    dependencies {
+
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+        testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+

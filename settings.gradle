@@ -1,0 +1,5 @@
+rootProject.name = 'wbdemo'
+include 'platform-cache-config'
+include 'annotation-demo'
+include 'lc-demo'
+

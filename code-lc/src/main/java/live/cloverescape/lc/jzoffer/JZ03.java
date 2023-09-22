@@ -9,6 +9,7 @@ import java.util.Map;
 public class JZ03 {
     public static void main(String[] args) {
         int[] nums = {2, 3, 1, 0, 2, 5, 3};
+        System.out.println(findRepeatNumber(nums));
         System.out.println(findRepeatNumber2(nums));
     }
     // 该实现方式用了 map 记录每一个元素出现的次数实现，但是审题发现可能不是最优方案，因为忽略了数组里的 n 个元素是 0-n-1 的

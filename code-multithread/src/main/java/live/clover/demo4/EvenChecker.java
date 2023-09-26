@@ -11,7 +11,7 @@ public class EvenChecker implements Runnable {
 
     private final IntGenerator generator;
 
-    public EvenChecker(IntGenerator g, int ident) {
+    public EvenChecker(IntGenerator g, int  ident) {
         generator = g;
     }
 

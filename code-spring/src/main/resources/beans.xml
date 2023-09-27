@@ -65,7 +65,7 @@
 <!--        <lookup-method name="getServiceA" bean="serviceA"/>-->
 <!--    </bean>-->
 
-    <bean id="serviceBMethodReplacer" class="live.clover.demo6.ServiceBMethodReplacer"/>
+    <bean id="serviceBMethodReplacer" class="live.clover.phaseone.demo6.ServiceBMethodReplacer"/>
     <bean class="live.clover.demo6.ServiceB">
         <replaced-method name="getServiceA" replacer="serviceBMethodReplacer"/>
     </bean>

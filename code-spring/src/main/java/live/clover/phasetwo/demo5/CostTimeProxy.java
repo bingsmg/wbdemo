@@ -1,6 +1,5 @@
 package live.clover.phasetwo.demo5;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
@@ -37,6 +36,4 @@ public class CostTimeProxy implements MethodInterceptor {
         enhancer.setSuperclass(target.getClass());
         return (T) enhancer.create();
     }
-
-
 }

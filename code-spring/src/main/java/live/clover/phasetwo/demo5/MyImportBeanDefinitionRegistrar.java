@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.type.AnnotationMetadata;
 
 /**
+ * ImportBeanDefinitionRegistrar 的实现类可以直接通过 api 的方式向容器中注册 bean
  * @author weibb
  * @date 2023-09-28
  */

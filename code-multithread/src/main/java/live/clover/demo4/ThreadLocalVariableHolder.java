@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
  * @date 2023-09-21
  */
 public class ThreadLocalVariableHolder {
-    private static ThreadLocal<Integer> value = new ThreadLocal<>() {
-        private Random rand = new Random(47);
+    private static final ThreadLocal<Integer> value = new ThreadLocal<>() {
+        private final Random rand = new Random(47);
 
         @Override
         protected Integer initialValue() {

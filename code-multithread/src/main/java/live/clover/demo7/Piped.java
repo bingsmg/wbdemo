@@ -3,7 +3,6 @@ package live.clover.demo7;
 import java.io.IOException;
 import java.io.PipedReader;
 import java.io.PipedWriter;
-import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 /**
  * @author weibb
@@ -44,7 +43,6 @@ public class Piped {
                     System.out.println((char) receive);
                 }
             } catch (IOException ignored) {
-                AbstractQueuedSynchronizer
 
             }
         }

@@ -5,4 +5,5 @@ include 'code-lc'
 include 'code-multithread'
 include 'code-designpattern'
 include 'code-spring'
+include 'code-rabbitmq'
 

@@ -12,14 +12,5 @@ import java.util.concurrent.TimeoutException;
  * @date 2023-11-13
  */
 public class Main {
-    public static void main(String[] args) {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("47.101.204.168");
-        try (Connection connection = factory.newConnection()) {
-            Channel channel = connection.createChannel();
 
-        } catch (IOException | TimeoutException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

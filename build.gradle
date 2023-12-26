@@ -1,5 +1,3 @@
-apply from: 'config.gradle'
-
 buildscript {
     ext {
         springBootVersion = "2.2.7.RELEASE"
@@ -24,29 +22,6 @@ buildscript {
     }
 }
 
-def all_service_subject = []
-def all_api_subject = []
-def all_ext_subject = []
-
-subprojects.each {
-    if (it.name.startsWith('platform-')) {
-        all_ext_subject << it
-    }
-
-    if (it.subprojects.empty && it.name.endsWith('-service')) {
-        all_service_subject << it
-    }
-    if (it.name.endsWith('-api')) {
-        all_api_subject << it
-    }
-}
-
-configure(all_service_subject) {
-    apply plugin: 'org.springframework.boot'
-}
-
-configure(all_ext_subject) {
-}
 
 allprojects {
     group 'com.star.boss'
@@ -62,8 +37,7 @@ allprojects {
             url "https://download.red-gate.com/maven/release"
         }
     }
-}
-subprojects {
+
     apply plugin: 'java'
     apply plugin: 'java-library'
     apply plugin: 'io.spring.dependency-management'
@@ -71,21 +45,9 @@ subprojects {
     sourceCompatibility = 11
     targetCompatibility = 11
 
-    dependencyManagement {
-        imports {
-            mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-        }
-    }
-
     dependencies {
-
-        compileOnly "org.projectlombok:lombok:${lombokVersion}"
-        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
-
-        testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
-        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
-        testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+// https://mvnrepository.com/artifact/junit/junit
+        implementation 'junit:junit:4.13.2'
     }
 
     test {

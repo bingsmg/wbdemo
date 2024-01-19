@@ -1,8 +1,7 @@
 package live.cloverescape.lc.stock;
 
 /**
- *  买卖股票的最佳时机
- *  dp[i][k]
+ * 只能进行 1 次交易
  * @author weibb
  * @date 2023-11-21
  */
@@ -14,14 +13,24 @@ public class LC121 {
     }
 
     public int maxProfit(int[] prices) {
-        int[][] dp = new int[prices.length+1][2];
-        dp[1][0] = 0;
-        dp[1][1] = -prices[0];
-        for (int i = 2; i <= prices.length; i++) {
-            dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1] + prices[i-1]);
-            dp[i][1] = Math.max(dp[i-1][1], - prices[i-1]);
+        int n = prices.length;
+        int[][] dp = new int[n][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i-1][1], -prices[i]); // 一次交易,所以今天的操作是 rest 或者 买入，买入的话因为这是第一次买入，所以与之前的收益无关
         }
 
-        return dp[prices.length][0];
+        return dp[n-1][0];
+    }
+
+    public int maxProfit2(int[] prices) {
+        int profit0 = 0, profit1 = -prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            profit0 = Math.max(profit0, profit1 + prices[i-1]);
+            profit1 = Math.max(profit1, -prices[i-1]);
+        }
+        return profit0;
     }
 }

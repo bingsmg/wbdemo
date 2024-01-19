@@ -1,4 +1,4 @@
-package live.cloverescape.lc.tree;
+package live.cloverescape.lc.trietree;
 
 /**
  * @author weibb

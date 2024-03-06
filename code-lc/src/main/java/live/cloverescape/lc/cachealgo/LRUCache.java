@@ -28,7 +28,6 @@ public class LRUCache {
             this.key = key;
             this.value = value;
         }
-
     }
 
     public LRUCache(int capacity) {
@@ -55,29 +54,31 @@ public class LRUCache {
         if (Objects.nonNull(node)) {
             node.value = value;
             moveToHead(node);
+        } else {
+            if (size == capacity) {
+                Node lastNode = tail.prev;
+                delNode(lastNode);
+                cache.remove(lastNode.key);
+                size--;
+            }
+            Node newNode = new Node(key, value);
+            cache.put(key, newNode);
+            addToHead(newNode);
+            ++size;
         }
-        if (size == capacity) {
-            delNode(tail.prev);
-            cache.remove(tail.key);
-            size--;
-        }
-        Node newNode = new Node(key, value);
-        cache.put(key, newNode);
-        addToHead(newNode);
-        ++size;
     }
 
-    public void moveToHead(Node node) {
+    private void moveToHead(Node node) {
         delNode(node);
         addToHead(node);
     }
 
-    public void delNode(Node node) {
+    private void delNode(Node node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
 
-    public void addToHead(Node node) {
+    private void addToHead(Node node) {
         head.next.prev = node;
         node.next = head.next;
         node.prev = head;

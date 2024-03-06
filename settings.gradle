@@ -9,4 +9,6 @@ include 'code-rabbitmq'
 include 'code-sourcecode'
 include 'code-job'
 include 'code-jvm'
+include 'code-scaffold'
+include 'code-kafaka'
 

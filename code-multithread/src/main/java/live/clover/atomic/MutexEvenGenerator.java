@@ -1,4 +1,4 @@
-package live.clover.demo4;
+package live.clover.atomic;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

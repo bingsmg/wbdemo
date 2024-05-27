@@ -1,4 +1,4 @@
-package live.clover.demo3;
+package live.clover.join;
 
 /**
  * @author weibb
@@ -18,13 +18,13 @@ public class Joiner extends Thread {
      * 在 joiner 线程驱动的任务里调用 sleeper 线程的 join 方法，则 joiner 线程挂起，sleeper 线程执行完之后 joiner 线程才能继续执行。
      * 但是如果传递了时间参数即 sleeper.join(1000) 则说明 1s 后如果 sleeper 如果还没有返回，join 方法总能返回。
      * join 的底层是 wait 方法实现的，wait 方法会释放被同步对象的锁。
-     * 具体调用看{@link live.clover.demo3.JoinTest}
+     * 具体调用看{@link live.clover.join.JoinTest}
      * @see Thread#join(long)
      */
     @Override
     public void run() {
         try {
-            sleeper.join(1000);
+            sleeper.join(1000); // 1s sleeper 没有执行完，则 joiner 执行
         } catch (InterruptedException e) {
             System.out.println("Interrupted");
         }

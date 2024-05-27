@@ -4,42 +4,42 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-autowire="byType">
 
-    <!--    <bean id="user" name="user_1" class="live.clover.demo1.User"/>-->
+    <!--    <bean id="user" name="user_1" class="live.clover.threadpool.User"/>-->
 
-    <!--    <bean id="userByFactory" name="user_factory_1" class="live.clover.demo1.StaticFactory" factory-method="getUser1">-->
+    <!--    <bean id="userByFactory" name="user_factory_1" class="live.clover.threadpool.StaticFactory" factory-method="getUser1">-->
     <!--        <constructor-arg index="0" value="10"/>-->
     <!--        <constructor-arg index="1" value="User"/>-->
     <!--    </bean>-->
 
-    <!--    <bean id="userByFactoryBean" name="user_factory_bean_1" class="live.clover.demo1.UserFactoryBean"/>-->
+    <!--    <bean id="userByFactoryBean" name="user_factory_bean_1" class="live.clover.threadpool.UserFactoryBean"/>-->
 
-    <!--    <bean id="a" class="live.clover.demo2.A"/>-->
-    <!--    <bean id="b" class="live.clover.demo2.B"/>-->
-    <!--    <bean id="c" class="live.clover.demo2.C"/>-->
+    <!--    <bean id="a" class="live.clover.callable.A"/>-->
+    <!--    <bean id="b" class="live.clover.callable.B"/>-->
+    <!--    <bean id="c" class="live.clover.callable.C"/>-->
 
-    <!--    <bean class="live.clover.demo2.DiAutowireByType$Service1"/>-->
-    <!--    <bean class="live.clover.demo2.DiAutowireByType$Service2"/>-->
-    <!--    <bean class="live.clover.demo2.AutowiredBeanByName" autowire="byName"/>-->
-    <!--    <bean class="live.clover.demo2.DiAutowireByType" autowire="byType"/>-->
+    <!--    <bean class="live.clover.callable.DiAutowireByType$Service1"/>-->
+    <!--    <bean class="live.clover.callable.DiAutowireByType$Service2"/>-->
+    <!--    <bean class="live.clover.callable.AutowiredBeanByName" autowire="byName"/>-->
+    <!--    <bean class="live.clover.callable.DiAutowireByType" autowire="byType"/>-->
 
-    <!--    <bean class="live.clover.demo2.DiAutowireByTypeExtend$Service1"/>-->
-    <!--    <bean class="live.clover.demo2.DiAutowireByTypeExtend$Service2"/>-->
-    <!--    <bean class="live.clover.demo2.DiAutowireByTypeExtend" autowire="byType"/>-->
+    <!--    <bean class="live.clover.callable.DiAutowireByTypeExtend$Service1"/>-->
+    <!--    <bean class="live.clover.callable.DiAutowireByTypeExtend$Service2"/>-->
+    <!--    <bean class="live.clover.callable.DiAutowireByTypeExtend" autowire="byType"/>-->
 
-    <!--    <bean id="bean1" class="live.clover.demo3.NormalBean$Bean1"/>-->
-    <!--    <bean class="live.clover.demo3.NormalBean$Bean2" depends-on="bean1"/>-->
-    <!--    <bean class="live.clover.demo3.NormalBean"/>-->
+    <!--    <bean id="bean1" class="live.clover.join.NormalBean$Bean1"/>-->
+    <!--    <bean class="live.clover.join.NormalBean$Bean2" depends-on="bean1"/>-->
+    <!--    <bean class="live.clover.join.NormalBean"/>-->
 
-    <!--    <bean id="serviceA" class="live.clover.demo3.PrimaryTestBean$ServiceA" primary="true"/>-->
-    <!--    <bean id="serviceB" class="live.clover.demo3.PrimaryTestBean$ServiceB"/>-->
+    <!--    <bean id="serviceA" class="live.clover.join.PrimaryTestBean$ServiceA" primary="true"/>-->
+    <!--    <bean id="serviceB" class="live.clover.join.PrimaryTestBean$ServiceB"/>-->
 
-    <!--    <bean class="live.clover.demo3.AutoCandidateBean$ServiceA" autowire-candidate="false"/>-->
-    <!--    <bean class="live.clover.demo3.AutoCandidateBean$ServiceB"/>-->
-    <!--    <bean class="live.clover.demo3.AutoCandidateBean"/>-->
+    <!--    <bean class="live.clover.join.AutoCandidateBean$ServiceA" autowire-candidate="false"/>-->
+    <!--    <bean class="live.clover.join.AutoCandidateBean$ServiceB"/>-->
+    <!--    <bean class="live.clover.join.AutoCandidateBean"/>-->
 
-    <!--    <bean id="actualTimeBean" class="live.clover.demo4.ActualTimeBean"/>-->
-    <!--    <bean id="lazyInitBean" class="live.clover.demo4.LazyInitBean" lazy-init="true"/>-->
-    <!--    <bean class="live.clover.demo4.ActualTimeDependsLazyBean"/>-->
+    <!--    <bean id="actualTimeBean" class="live.clover.atomic.ActualTimeBean"/>-->
+    <!--    <bean id="lazyInitBean" class="live.clover.atomic.LazyInitBean" lazy-init="true"/>-->
+    <!--    <bean class="live.clover.atomic.ActualTimeDependsLazyBean"/>-->
 
 <!--    <bean id="serviceA" class="live.clover.demo5.ServiceA"/>-->
 <!--    <bean id="serviceB" class="live.clover.demo5.ServiceB">-->

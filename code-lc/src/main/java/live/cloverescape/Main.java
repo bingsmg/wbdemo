@@ -1,8 +1,6 @@
 package live.cloverescape;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author weibb
@@ -10,10 +8,15 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        Main main = new Main();
-        int[] candidates = {10, 1, 2, 7, 6, 1, 5};
-        for (List<Integer> integers : main.combinationSum2(candidates, 8)) {
-            System.out.println(Arrays.toString(integers.toArray()));
+        Properties properties = System.getProperties();
+        System.out.println("System properties: ###################");
+        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+            System.out.println(entry.getKey().toString() + ": " + entry.getValue().toString());
+        }
+        System.out.println("\n\n\nEnvironment variables: ####################");
+        Map<String, String> envs = System.getenv();
+        for (Map.Entry<String, String> entry : envs.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
 

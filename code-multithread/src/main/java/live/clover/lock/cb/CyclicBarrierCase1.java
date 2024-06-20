@@ -1,21 +1,17 @@
-package live.clover.cdl;
+package live.clover.lock.cb;
 
-
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * 用 Java 的多线程模拟一个赛马，马场上有 10 匹马，要求它们同时跑
  * @author weibb
  */
-public class CountDownLatchCase1 {
+public class CyclicBarrierCase1 {
 
-    CountDownLatch countDownLatch = new CountDownLatch(10);
+    CyclicBarrier cyclicBarrier = new CyclicBarrier(10);
 
     public static void main(String[] args) {
-        CountDownLatchCase1 case1 = new CountDownLatchCase1();
+        CyclicBarrierCase1 case1 = new CyclicBarrierCase1();
         case1.horseRacing();
     }
 
@@ -30,13 +26,12 @@ public class CountDownLatchCase1 {
 
             executorService.submit(() -> {
                 try {
-                    countDownLatch.await();
-                    System.out.println("Thread: " + Thread.currentThread().getName() + ", time: " + System.currentTimeMillis());
-                } catch (InterruptedException e) {
+                    cyclicBarrier.await();
+                    System.out.println("Thread: " + Thread.currentThread().getName() + " prepare end,time: " + System.currentTimeMillis());
+                } catch (InterruptedException | BrokenBarrierException e) {
                     e.printStackTrace();
                 }
             });
-            countDownLatch.countDown();
         }
         executorService.shutdown();
     }

@@ -2,4 +2,4 @@
  * CyclicBarrier 的相关 case
  * @author weibb
  */
-package live.clover.cb;
+package live.clover.lock.cb;

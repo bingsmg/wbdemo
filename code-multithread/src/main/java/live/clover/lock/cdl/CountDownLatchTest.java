@@ -1,4 +1,4 @@
-package live.clover.cdl;
+package live.clover.lock.cdl;
 
 import org.junit.Test;
 

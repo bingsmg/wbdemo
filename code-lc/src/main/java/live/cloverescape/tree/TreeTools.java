@@ -1,6 +1,8 @@
 package live.cloverescape.tree;
 
 import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -27,9 +29,7 @@ public class TreeTools {
                 nums[i] = Integer.parseInt(strNodes[i]);
             }
         }
-        TreeNode root = new TreeNode();
-        build(nums);
-        return root;
+        return lcBuild(nums);
     }
 
     /**
@@ -53,8 +53,33 @@ public class TreeTools {
         for (int i = 0; i * 2 + 2 < n; i++) {
             TreeNode node = treeNodes.get(i);
             if (node != null) {
-                node.left = new TreeNode(arr[2 * i + 1]);
-                node.right = new TreeNode(arr[2 * i + 2]);
+                node.left = treeNodes.get(2 * i + 1);
+                node.right = treeNodes.get(2 * i + 2);
+            }
+        }
+        return root;
+    }
+
+    private static TreeNode lcBuild(int[] arr) {
+        int n = (arr == null ? 0 : arr.length);
+        if (n == 0) return null;
+        TreeNode root = new TreeNode(arr[0]);
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        int i = 1;
+        while (i < n) {
+            TreeNode node = queue.poll();
+            if (node != null) {
+                if (arr[i] != -1) {
+                    node.left = new TreeNode(arr[i]);
+                    queue.offer(node.left);
+                }
+                i += 1;
+                if (i < n && arr[i] != -1) {
+                    node.right = new TreeNode(arr[i]);
+                    queue.offer(node.right);
+                }
+                i += 1;
             }
         }
         return root;

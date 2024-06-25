@@ -4,7 +4,7 @@ package live.cloverescape.tree;
  * @author weibb
  */
 public class TreeNode {
-     private int val;
+     int val;
      TreeNode left;
      TreeNode right;
 

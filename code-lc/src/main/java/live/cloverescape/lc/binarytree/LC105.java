@@ -1,4 +1,5 @@
-package live.cloverescape.tree;
+package live.cloverescape.lc.binarytree;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class LC105 {
      * @param pr 前序右
      * @param il 中序左
      * @param ir 中序右
-     * @return
+     * @return root
      */
     private TreeNode build(int pl, int pr, int il, int ir) {
         if (pr < pl || ir < il) return null;

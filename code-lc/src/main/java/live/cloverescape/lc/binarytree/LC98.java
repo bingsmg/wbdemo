@@ -1,4 +1,5 @@
-package live.cloverescape.tree;
+package live.cloverescape.lc.binarytree;
+
 
 import java.util.ArrayList;
 import java.util.List;

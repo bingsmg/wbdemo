@@ -1,9 +1,7 @@
-package live.cloverescape.tree;
+package live.cloverescape.lc.binarytree;
 
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author weibb
@@ -30,34 +28,6 @@ public class TreeTools {
             }
         }
         return lcBuild(nums);
-    }
-
-    /**
-     * 输入为类似 [1,3,2,5,3,-1,9]
-     * 数组满足 i 处为 root, 2*i+1 为 left, 2*i+2 为 right
-     * @param arr 数组
-     */
-    private static TreeNode build(int[] arr) {
-        int n = (arr == null ? 0 : arr.length);
-        TreeNode root = null;
-        if (n == 0) return null;
-        List<TreeNode> treeNodes = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
-            TreeNode node = null;
-            if (arr[i] != -1) {
-                node = new TreeNode(arr[i]);
-            }
-            if (i == 0) root = node;
-            treeNodes.add(node);
-        }
-        for (int i = 0; i * 2 + 2 < n; i++) {
-            TreeNode node = treeNodes.get(i);
-            if (node != null) {
-                node.left = treeNodes.get(2 * i + 1);
-                node.right = treeNodes.get(2 * i + 2);
-            }
-        }
-        return root;
     }
 
     private static TreeNode lcBuild(int[] arr) {

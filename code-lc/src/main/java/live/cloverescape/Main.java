@@ -8,16 +8,10 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
-        Properties properties = System.getProperties();
-        System.out.println("System properties: ###################");
-        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
-            System.out.println(entry.getKey().toString() + ": " + entry.getValue().toString());
-        }
-        System.out.println("\n\n\nEnvironment variables: ####################");
-        Map<String, String> envs = System.getenv();
-        for (Map.Entry<String, String> entry : envs.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
+        char c = 'b';
+        System.out.println(c);
+        c -= 1;
+        System.out.println(c);
     }
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {

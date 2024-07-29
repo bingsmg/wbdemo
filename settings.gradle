@@ -12,4 +12,5 @@ include 'code-jvm'
 include 'code-scaffold'
 include 'code-kafaka'
 include 'code-animal-impl'
+include 'code-kafka'
 

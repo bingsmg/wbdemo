@@ -32,6 +32,6 @@ public class Topic1 {
         for (int i = 0; i < m; i++) {
             res.add(Objects.requireNonNull(minHeap.poll()).getKey());
         }
-        res.forEach(System.out::print);
+        res.forEach(value -> System.out.print(value + " "));
     }
 }

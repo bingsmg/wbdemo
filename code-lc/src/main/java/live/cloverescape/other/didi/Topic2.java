@@ -3,12 +3,12 @@ package live.cloverescape.other.didi;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 给定一个矩阵a[x][y], 给定一个起点s[m][n],终点x[w][q] ,求s->x的所有路线list。
+ * 只能往“前”（向终点坐标的方向）运动，不能后退
+ */
 public class Topic2 {
-    /**
-     * 给定一个矩阵a[x][y], 给定一个起点s[m][n],终点x[w][q] ,求s->x的所有路线list。
-     * 只能往“前”（向终点坐标的方向）运动，不能后退
-     * @param args
-     */
+
     static int x = 5, y = 5;
     static int m, n;
     static int w, q;

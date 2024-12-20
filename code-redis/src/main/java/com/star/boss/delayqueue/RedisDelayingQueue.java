@@ -19,8 +19,8 @@ public class RedisDelayingQueue<T> {
     }
 
     private final Type type = new TypeReference<TaskItem<T>>() {}.getType();
-    private Jedis jedis;
-    private String queueKey;
+    private final Jedis jedis;
+    private final String queueKey;
 
     public RedisDelayingQueue(Jedis jedis, String queueKey) {
         this.jedis = jedis;
